@@ -13,6 +13,7 @@ app.MapPost("/login", (LoginDTO loginDTO) =>
         return Results.Unauthorized();
 });
 
+app.Run();
 
 public class LoginDTO
 {
@@ -20,5 +21,3 @@ public class LoginDTO
     public string Password { get; set; }
 }
 
-
-app.Run();
