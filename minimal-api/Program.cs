@@ -12,9 +12,6 @@ var app = builder.Build();
 
 
 
-
-app.MapGet("/", () => "Hello World!");
-
 app.MapPost("/login", (MinimalApi.Dominio.DTOs.LoginDTO loginDTO) =>
 {
     if (loginDTO.Email == "adm@exmplo.com" && loginDTO.Password == "123456")
