@@ -15,12 +15,8 @@ public class DbContexto : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            
-        
-
             var connectionString = _configuration.GetConnectionString("mysql").ToString();
-            if(!string.IsNullOrEmpty(connectionString))
-                {
+            if(!string.IsNullOrEmpty(connectionString)) {
                 optionsBuilder.UseMySql(connectionString, 
                 new MySqlServerVersion(new Version(8, 0, 26)));
             }
