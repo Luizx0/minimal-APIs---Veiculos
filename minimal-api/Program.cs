@@ -24,3 +24,10 @@ app.MapPost("/login", (MinimalApi.Dominio.DTOs.LoginDTO loginDTO) =>
 
 app.Run();
 
+
+
+
+
+
+
+
