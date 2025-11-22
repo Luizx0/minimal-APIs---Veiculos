@@ -11,15 +11,15 @@ public class Administrador
 
     [Required]
     [StringLength(100)]
-    public string Nome { get; set; }
+    public required string Nome { get; set; }
 
     [Required]
     [StringLength(100)]
-    public string Email { get; set; }
+    public required string Email { get; set; }
 
     [StringLength(30)]
-    public string Senha { get; set; }   
+    public required string Password { get; set; }   
 
     [StringLength(10)]
-    public string Perfil { get; set; }
+    public required string Perfil { get; set; }
 }
