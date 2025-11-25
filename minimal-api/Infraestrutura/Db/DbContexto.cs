@@ -18,7 +18,7 @@ public class DbContexto : DbContext
             Id = 1,
             Nome = "Administrador",
             Email = "Adm1@exemplo.com",
-            Senha = "123456",
+            Password = "123456",
             Perfil = "Adm"
         }
         );
@@ -29,7 +29,7 @@ public class DbContexto : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            var connectionString = _configuration.GetConnectionString("mysql").ToString();
+            var connectionString = _configuration.GetConnectionString("mysql")?.ToString();
             if(!string.IsNullOrEmpty(connectionString)) {
                 optionsBuilder.UseMySql(connectionString, 
                 new MySqlServerVersion(new Version(8, 0, 26)));
