@@ -30,11 +30,3 @@ app.MapPost("/login", ([FromBody]LoginDTO loginDTO, iAdministradorServico admini
 });
 
 app.Run();
-
-
-
-
-
-
-
-
