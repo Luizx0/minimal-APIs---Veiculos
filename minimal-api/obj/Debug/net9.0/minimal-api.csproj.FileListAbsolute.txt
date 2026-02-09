@@ -122,3 +122,8 @@ D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\zh-Hant\Mi
 D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\obj\Debug\net9.0\minimal-api.csproj.AssemblyReference.cache
 D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\obj\Debug\net9.0\minimal-api.sourcelink.json
 D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\obj\Debug\net9.0\minimal-.F3613C90.Up2Date
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\obj\Debug\net9.0\minimal-api.MvcApplicationPartsAssemblyInfo.cs
