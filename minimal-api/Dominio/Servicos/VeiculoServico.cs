@@ -5,7 +5,7 @@ using MinimalApi.Infraestrutura.Db;
 
 namespace MinimalApi.Dominio.Servicos;
 
-    public class VeiculoServico : iVeiculoServico
+    public class VeiculoServico : IVeiculoServico
     {
         private readonly DbContexto _contexto;
         public VeiculoServico(DbContexto contexto)

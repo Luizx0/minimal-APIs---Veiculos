@@ -5,6 +5,8 @@ namespace MinimalApi.Dominio.Entidades;
 
 public class Veiculo
 {
+    public Veiculo() { }
+
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
@@ -18,7 +20,7 @@ public class Veiculo
     public required string Marca { get; set; }
 
     [Required]
-    public required int Ano { get; set; }   
+    public required int Ano { get; set; }
 
     [Required]
     [StringLength(10)]

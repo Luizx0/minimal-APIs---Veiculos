@@ -3,7 +3,7 @@ using MinimalApi.Dominio.Entidades;
 
 namespace MinimalApi.Dominio.Interfaces;
 
-    public interface iVeiculoServico
+    public interface IVeiculoServico
 {
     List<Veiculo> Todos(int pagina, int quantidade, string? nome = null, string? marca = null);
     Veiculo? ObterPorId(int id);
