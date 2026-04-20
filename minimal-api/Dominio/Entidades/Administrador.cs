@@ -1,10 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MinimalApi.Dominio.Entidades;
 
 public class Administrador
 {
+    public Administrador() { }
+
+    [SetsRequiredMembers]
     public Administrador(string nome, string email, string senha, string perfil)
     {
         Nome = nome;

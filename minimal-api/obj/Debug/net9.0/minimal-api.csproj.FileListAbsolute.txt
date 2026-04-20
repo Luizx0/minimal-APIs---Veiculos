@@ -261,3 +261,11 @@ D:\LUIZ\Cursos\dio.me\.NET\Minimals APIs\minimal-APIs---Veiculos\minimal-api\obj
 D:\LUIZ\Cursos\dio.me\.NET\Minimals APIs\minimal-APIs---Veiculos\minimal-api\obj\Debug\net9.0\minimal-.F3613C90.Up2Date
 D:\LUIZ\Cursos\dio.me\.NET\Minimals APIs\minimal-APIs---Veiculos\minimal-api\obj\Debug\net9.0\minimal-api.genruntimeconfig.cache
 D:\LUIZ\Cursos\dio.me\.NET\Minimals APIs\minimal-APIs---Veiculos\minimal-api\obj\Debug\net9.0\ref\minimal-api.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Luizx\Cursos\dio.me\.NET\minimal APIs\minimal-api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

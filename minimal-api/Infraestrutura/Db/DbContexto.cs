@@ -18,9 +18,9 @@ public class DbContexto : DbContext
         {
             Id = 1,
             Nome = "Administrador",
-            Email = "Adm1@exemplo.com",
+            Email = "adm@exemplo.com",
             Password = "123456",
-            Perfil = "Adm"
+            Perfil = "Administrador"
         }
         );
     }

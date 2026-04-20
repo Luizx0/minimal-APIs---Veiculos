@@ -147,9 +147,9 @@ app.MapPost("/administradores", ([FromBody] AdministradorDTO administradorDTO, i
     try
     {
         var administrador = new Administrador(
-            administradorDTO.Nome,
-            administradorDTO.Email,
-            administradorDTO.Senha,
+            administradorDTO.Nome!,
+            administradorDTO.Email!,
+            administradorDTO.Senha!,
             perfilStr
         );
         administradorServico.Cadastrar(administrador);
