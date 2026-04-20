@@ -5,6 +5,14 @@ namespace MinimalApi.Dominio.Entidades;
 
 public class Administrador
 {
+    public Administrador(string nome, string email, string senha, string perfil)
+    {
+        Nome = nome;
+        Email = email;
+        Password = senha;
+        Perfil = perfil;
+    }
+
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
@@ -19,7 +27,7 @@ public class Administrador
 
     [Required]
     [StringLength(30)]
-    public required string Password { get; set; }   
+    public required string Password { get; set; }
 
     [Required]
     [StringLength(10)]
