@@ -21,18 +21,18 @@ public class Veiculo
 
     [Required]
     [StringLength(150)]
-    public required string Nome { get; set; }
+    public string Nome { get; set; }
 
     [Required]
     [StringLength(100)]
-    public required string Marca { get; set; }
+    public string Marca { get; set; }
 
     [Required]
-    public required int Ano { get; set; }   
+    public int Ano { get; set; }   
 
     [Required]
     [StringLength(10)]
-    public required string Placa { get; set; }
+    public string Placa { get; set; }
     public string Modelo { get; internal set; }
     public decimal Preco { get; internal set; }
 }
