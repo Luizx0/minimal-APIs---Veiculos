@@ -6,4 +6,7 @@ namespace MinimalApi.Dominio.Interfaces;
     public interface iAdministradorServico
 {
     Administrador? Login(LoginDTO loginDTO);
+    Administrador Cadastrar(Administrador administrador);
+    List<Administrador> Todos(int? pagina);
+    Administrador ObterPorId(int id);
 }
