@@ -14,6 +14,7 @@ using MinimalApi.Dominio.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Dominio.ModelViews;
 using MinimalApi.Dominio.Enuns;
+using System.IdentityModel.Tokens.Jwt;
 
 #region builder
 var builder = WebApplication.CreateBuilder(args);
@@ -77,6 +78,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => Results.Json(new Home())).WithTags("Home");
 
+#region TokenJWT
 string GenerateToken(Administrador adm, bool vitalicio = false)
 {
     var claims = new[] {
@@ -98,13 +100,14 @@ string GenerateToken(Administrador adm, bool vitalicio = false)
 
     return new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler().WriteToken(token);
 }
+#endregion
 
 #region administradores
-
 app.MapPost("/administradores/login", ([FromBody]LoginDTO loginDTO, iAdministradorServico administradorServico, HttpContext http, [FromQuery] bool vitalicio = false) =>
 {
     var adm = administradorServico.Login(loginDTO);
     if (adm == null)
+    
         return Results.Unauthorized();
 
     // generate token: allow vitalicio only if email matches configured owner
@@ -163,7 +166,7 @@ app.MapPost("/administradores", ([FromBody] AdministradorDTO administradorDTO, i
     {
         return Results.BadRequest(new { mensagem = "Erro ao cadastrar administrador", erro = ex.Message });
     }
-}).WithTags("Administradores");
+}).RequireAuthorization().WithTags("Administradores");
 
 app.MapGet("/administradores", ([FromQuery] int? pagina, iAdministradorServico administradorServico, HttpContext http) =>
 {
@@ -177,7 +180,7 @@ app.MapGet("/administradores", ([FromQuery] int? pagina, iAdministradorServico a
         a.Perfil
     });
     return Results.Ok(resultado);
-}).WithTags("Administradores");
+}).RequireAuthorization().WithTags("Administradores");
 
 app.MapGet("/administradores/{id}", ([FromRoute] int id, iAdministradorServico administradorServico, HttpContext http) =>
 {
@@ -194,7 +197,7 @@ app.MapGet("/administradores/{id}", ([FromRoute] int id, iAdministradorServico a
         administrador.Perfil
     };
     return Results.Ok(resultado);
-}).WithTags("Administradores");
+}).RequireAuthorization().WithTags("Administradores");
 #endregion
 
 #region CRUD Veículos
@@ -260,14 +263,14 @@ app.MapPost("/veiculos", ([FromBody]VeiculoDTO veiculoDTO, iVeiculoServico veicu
         return Results.BadRequest(new { mensagem = "Erro ao cadastrar veículo", erro = ex.Message });
     }
 }
-).WithTags("Veículos");
+).RequireAuthorization().WithTags("Veículos");
 
 app.MapGet("/veiculos", ([FromQuery] int pagina, int quantidade, string? nome, string? marca, iVeiculoServico veiculoServico) =>
 {
     var veiculos = veiculoServico.Todos(pagina, quantidade, nome, marca);
     return Results.Ok(veiculos);
 }
-).WithTags("Veículos");;
+).RequireAuthorization().WithTags("Veículos");;
 
 app.MapGet("/veiculos/{id}", ([FromRoute] int id, iVeiculoServico veiculoServico) =>
 {
@@ -279,7 +282,7 @@ app.MapGet("/veiculos/{id}", ([FromRoute] int id, iVeiculoServico veiculoServico
     else
         return Results.NotFound();
 }
-).WithTags("Veículos");;
+).RequireAuthorization().WithTags("Veículos");;
 
 app.MapPut("/veiculos/{id}", ([FromRoute] int id, [FromBody] VeiculoDTO veiculoDTO, iVeiculoServico veiculoServico) =>
 {
@@ -303,7 +306,7 @@ app.MapPut("/veiculos/{id}", ([FromRoute] int id, [FromBody] VeiculoDTO veiculoD
         mensagem = "Veículo atualizado com sucesso!",
         dados = veiculoAtualizado
     });
-}).WithTags("Veículos");
+}).RequireAuthorization().WithTags("Veículos");
 
 app.MapDelete("/veiculos/{id}", ([FromRoute] int id, iVeiculoServico veiculoServico) =>
 {
@@ -314,7 +317,7 @@ app.MapDelete("/veiculos/{id}", ([FromRoute] int id, iVeiculoServico veiculoServ
     }
     veiculoServico.Apagar(id, veiculo);
     return Results.NoContent();
-}).WithTags("Veículos");
+}).RequireAuthorization().WithTags("Veículos");
 
 #endregion
 
