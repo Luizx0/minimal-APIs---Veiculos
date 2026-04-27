@@ -1,11 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 using MinimalApi.Dominio.Entidades;
 using MinimalApi.Dominio.Interfaces;
 using MinimalApi.Dominio.Servicos;
@@ -14,6 +11,7 @@ using MinimalApi.Dominio.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Dominio.ModelViews;
 using MinimalApi.Dominio.Enuns;
+using Microsoft.OpenApi.Models;
 
 #region builder
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +20,32 @@ builder.Services.AddScoped<iAdministradorServico, AdministradorServico>();
 builder.Services.AddScoped<iVeiculoServico, VeiculoServico>();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\""
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new List<string>()
+        }
+    });
 
 // JWT configuration
 var jwtSection = builder.Configuration.GetSection("Jwt");
@@ -325,3 +348,4 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.Run();
+});
